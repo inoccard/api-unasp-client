@@ -10,7 +10,7 @@
 define('LARAVEL_START', microtime(true));
 define('URL_API', 'http://127.0.0.1:8000/api/V1/');
 define('EMAIL_API', 'inocenciocardoso19@gmail.com');
-define('PASSWORD_API', 'twl767');
+define('PASSWORD_API', '123456');
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

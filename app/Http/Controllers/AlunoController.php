@@ -25,6 +25,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
+        //dd("Token: {$this->token}");
         $guzzle = new Guzzle;
 
         $result = $guzzle->get(URL_API.'alunos',[
@@ -32,13 +33,12 @@ class AlunoController extends Controller
                 'Authorization' => "Bearer {$this->token}",
             ],
         ]);
-        $Alunos = json_decode($result->getBody())->data;
+        $alunos = json_decode($result->getBody())->data;
       
         $title = "Listagem de Alunos";
 
-        return view('testes-api.alunos.index',compact('Alunos','title'));
+        return view('testes-api.alunos.index',compact('alunos','title'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -60,7 +60,7 @@ class AlunoController extends Controller
     {
         $dataForm = $request->except('_token');
         $guzzle = new Guzzle;
-        $response = $guzzle->request('POST', URL_API . 'alunos', [
+        $guzzle->request('POST', URL_API . 'alunos', [
             'headers' => [
                 'Authorization' => "Bearer {$this->token}",
             ],
@@ -190,10 +190,10 @@ class AlunoController extends Controller
                 'Authorization' => "Bearer {$this->token}",
             ],
         ]);
-        $Alunos = json_decode($result->getBody())->data;
+        $alunos = json_decode($result->getBody())->data;
       
         $title = "Listagem de Alunos";
 
-        return view('testes-api.alunos.index',compact('Alunos',"title"));   
+        return view('testes-api.alunos.index',compact('alunos',"title"));   
     }
 }
