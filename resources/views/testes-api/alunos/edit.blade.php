@@ -8,7 +8,7 @@
 
     {!! Form::model($aluno, ['route' => ['alunos.update', $aluno->id], 'class' => 'form', 'method' => 'PUT']) !!}
     
-        @include('testes-api.produtos.form-part')    
+        @include('testes-api.alunos.form-part')    
 
     {!! Form::close() !!}
  

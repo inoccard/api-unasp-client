@@ -25,7 +25,6 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //dd("Token: {$this->token}");
         $guzzle = new Guzzle;
 
         $result = $guzzle->get(URL_API.'alunos',[
@@ -60,13 +59,13 @@ class AlunoController extends Controller
     {
         $dataForm = $request->except('_token');
         $guzzle = new Guzzle;
-        $guzzle->request('POST', URL_API . 'alunos', [
+        $response = $guzzle->post(URL_API.'alunos', [
             'headers' => [
                 'Authorization' => "Bearer {$this->token}",
             ],
             'form_params' => $dataForm,
         ]);
-        //dd(json_decode($response->getBody()));
+        json_decode($response->getBody());
         return redirect()
             ->route('alunos.index')
             ->with('success', 'Cadastro Realizado Com Sucesso');
@@ -90,9 +89,9 @@ class AlunoController extends Controller
     
             ]);
     
-            $Aluno = json_decode($response->getBody())->data;
+            $aluno = json_decode($response->getBody())->data;
     
-            $title = "Detalhes do Aluno:  {$Aluno->nome}";
+            $title = "Detalhes do Aluno:  {$aluno->nome}";
     
             return view('testes-api.alunos.show', compact('aluno','title'));
             //dd(json_decode($response->getBody()));
@@ -125,9 +124,9 @@ class AlunoController extends Controller
     
             ]);
     
-            $Aluno = json_decode($response->getBody())->data;
+            $aluno = json_decode($response->getBody())->data;
     
-            $title = "Editar Aluno:  {$Aluno->nome}";
+            $title = "Editar Aluno:  {$aluno->nome}";
     
             return view('testes-api.alunos.edit', compact('aluno','title'));
             //dd(json_decode($response->getBody()));
@@ -160,7 +159,7 @@ class AlunoController extends Controller
         ]);
         return redirect()
             ->route('alunos.index')
-            ->with('success', 'Aluno alterado Com Sucesso');
+            ->with('success', 'Dados do aluno alterado');
     }
     /**
      * Remove the specified resource from storage.
