@@ -1,4 +1,4 @@
-@extends('testes-api.layouts.template'
+@extends('layouts.template'
 )
 @section('content-api')
 
@@ -8,7 +8,7 @@
 
     {!! Form::model($aluno, ['route' => ['alunos.update', $aluno->id], 'class' => 'form', 'method' => 'PUT']) !!}
     
-        @include('testes-api.alunos.form-part')    
+        @include('alunos.form-part')    
 
     {!! Form::close() !!}
  

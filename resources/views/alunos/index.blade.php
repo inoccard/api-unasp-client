@@ -1,4 +1,4 @@
-@extends('testes-api.layouts.template')
+@extends('layouts.template')
 
 @section('content-api')
 

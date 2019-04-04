@@ -36,7 +36,7 @@ class AlunoController extends Controller
       
         $title = "Listagem de Alunos";
 
-        return view('testes-api.alunos.index',compact('alunos','title'));
+        return view('alunos.index',compact('alunos','title'));
     }
     /**
      * Show the form for creating a new resource.
@@ -46,7 +46,7 @@ class AlunoController extends Controller
     public function create()
     {
         $title = 'Cadastro novo aluno';
-        return view('testes-api.alunos.create', compact('title'));
+        return view('alunos.create', compact('title'));
     }
 
     /**
@@ -93,7 +93,7 @@ class AlunoController extends Controller
     
             $title = "Detalhes do Aluno:  {$aluno->nome}";
     
-            return view('testes-api.alunos.show', compact('aluno','title'));
+            return view('alunos.show', compact('aluno','title'));
             //dd(json_decode($response->getBody()));
         }catch(ClientException $e){
             $responseBody = $e->getResponse();
@@ -128,7 +128,7 @@ class AlunoController extends Controller
     
             $title = "Editar Aluno:  {$aluno->nome}";
     
-            return view('testes-api.alunos.edit', compact('aluno','title'));
+            return view('alunos.edit', compact('aluno','title'));
             //dd(json_decode($response->getBody()));
         }catch(ClientException $e){
             $responseBody = $e->getResponse();
@@ -193,6 +193,6 @@ class AlunoController extends Controller
       
         $title = "Listagem de Alunos";
 
-        return view('testes-api.alunos.index',compact('alunos',"title"));   
+        return view('alunos.index',compact('alunos',"title"));   
     }
 }

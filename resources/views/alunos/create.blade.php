@@ -1,4 +1,4 @@
-@extends('testes-api.layouts.template')
+@extends('layouts.template')
 
 @section('content-api')
 
@@ -7,7 +7,7 @@
 
 {!! Form::open(['route' => 'alunos.store', 'class' => 'form']) !!}
     
-@include('testes-api.alunos.form-part')    
+@include('alunos.form-part')    
 
 {!! Form::close() !!}
 @endsection
